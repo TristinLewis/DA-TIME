@@ -3,22 +3,21 @@
 class Time{
 private:
 	int days, hours, minutes, seconds; 
+
+	Time regularTime(int d, int h, int m, int s) const; 
 public:
 	Time();
-	Time(int days, int hours, int months);
-	Time(int hours, int minutes, int seconds);
+	Time(int d, int h, int m, int s);
+	Time(int h, int m, int s);
+	Time(int h, int m);
 
-	void setDays();
-	void setHours();
-	void setMinutes();
-	void setSeconds();
+	int getDays()const;
+	int getHours()const;
+	int getMinutes()const;
+	int getSeconds()const;
 
-	int getDays();
-	int getHours();
-	int getMinutes();
-	int getSeconds();
-
-
+	Time operator+(const Time& other) const;
+	Time operator-(const Time& other) const;
 
 
 

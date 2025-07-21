@@ -130,6 +130,7 @@
     <ClInclude Include="Time.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MainDriver.cpp" />
     <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
