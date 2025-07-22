@@ -71,6 +71,32 @@ Time Time::operator-(const Time& other)const{
 	return regularTime(d, h, m, s);
 
 }
+int Time::totalSeconds() const{
+	return days * 86400 + hours * 3600 + minutes * 60 + seconds; 
+}
+bool Time::operator==(const Time& other) const {
+	return totalSeconds() == other.totalSeconds();
+}
+bool Time::operator!=(const Time& other) const {
+	return totalSeconds() != other.totalSeconds(); 
+}
+bool Time::operator<(const Time & other) const {
+	return totalSeconds() < other.totalSeconds(); 
+}
+bool Time::operator<=(const Time& other) const {
+	return totalSeconds() <= other.totalSeconds();
+}
+bool Time::operator>(const Time& other) const {
+	return totalSeconds() > other.totalSeconds(); 
+}
+bool Time::operator>=(const Time& other) const {
+	return totalSeconds() >= other.totalSeconds(); 
+}
+ostream& operator<<(ostream& o, const Time& t) {
+
+
+}
+
 
 
 
