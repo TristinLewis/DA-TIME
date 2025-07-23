@@ -71,30 +71,38 @@ Time Time::operator-(const Time& other)const{
 	return regularTime(d, h, m, s);
 
 }
-int Time::totalSeconds() const{
-	return days * 86400 + hours * 3600 + minutes * 60 + seconds; 
-}
+/*int totalSeconds()const {												Dont need this anymore have time conversion for. 
+return days * 86400 + hours * 3600 + minutes * 60 + seconds;
+}*/
 bool Time::operator==(const Time& other) const {
-	return totalSeconds() == other.totalSeconds();
+	return operator int() == other.operator int();
 }
 bool Time::operator!=(const Time& other) const {
-	return totalSeconds() != other.totalSeconds(); 
+	return operator int() != other.operator int();
 }
 bool Time::operator<(const Time & other) const {
-	return totalSeconds() < other.totalSeconds(); 
+	return operator int() < other.operator int();
 }
 bool Time::operator<=(const Time& other) const {
-	return totalSeconds() <= other.totalSeconds();
+	return operator int() <= other.operator int();
 }
 bool Time::operator>(const Time& other) const {
-	return totalSeconds() > other.totalSeconds(); 
+	return operator int() > other.operator int();
 }
 bool Time::operator>=(const Time& other) const {
-	return totalSeconds() >= other.totalSeconds(); 
+	return operator int() >= other.operator int();
 }
-ostream& operator<<(ostream& o, const Time& t) {
+std::ostream& operator<<(std::ostream& stream, const Time& t) {
 
+	stream << "Testing out stream op " << t.days << "days, "
+		<< t.hours << " hours, " << t.minutes << " minutes, " <<
+		t.seconds << " seconds."; 
 
+	return stream; 
+
+}
+Time::operator int() const {
+	return days * 86400 + hours * 3600 + minutes * 60 + seconds;
 }
 
 

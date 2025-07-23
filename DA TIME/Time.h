@@ -1,5 +1,6 @@
 #ifndef Time_h
 #define Time_h
+#include<iostream>
 class Time{
 private:
 	int days, hours, minutes, seconds; 
@@ -19,7 +20,7 @@ public:
 	Time operator+(const Time& other) const;
 	Time operator-(const Time& other) const;
 
-	int totalSeconds()const;
+	//Don't need anymore int totalSeconds()const;
 	bool operator==(const Time& other) const; 
 	bool operator!=(const Time& other) const;
 	bool operator<(const Time& other) const;
@@ -27,7 +28,9 @@ public:
 	bool operator>(const Time& other) const;
 	bool operator>=(const Time& other) const;
 
-	friend ostream& operator<<(ostream& o, const Time& t); 
+	friend std::ostream& operator<<(std::ostream& stream, const Time& t);
+
+	operator int() const; 
 };
 #endif
 
